@@ -21,16 +21,16 @@ function generatePassword() {
   var passLength = false;
   var passCharacter = false;
   var finalPassword = "";
-  while (passLength === false) {
+  while (passLength === false) { // Validating the length of password. Allowed 8 up to 128
     passLength = lengthValidation();
   }
-  while (passCharacter === false) {
+  while (passCharacter === false) { // Validating the criteria for characther types
     passCharacter = charactersValidation();
   }
   console.log(passLength);
   console.log(passCharacter);
 
-for (i=0; i < passCharacter.length; i++){
+for (i=0; i < passCharacter.length; i++){ // Joing arrays due criteria
   if (passCharacter[i] === "l"){
     passwordArray = passwordArray.concat(lowerCasedCharacters);
   }
@@ -46,9 +46,9 @@ for (i=0; i < passCharacter.length; i++){
   console.log(passwordArray);
   }
   for (j=0; j < passLength; j++){
-    var numrandom = Math.floor(Math.random() * passwordArray.length);
+    var numrandom = Math.floor(Math.random() * passwordArray.length); // Generating a random integer 
     console.log(numrandom);
-    finalPassword = passwordArray[numrandom] + finalPassword;
+    finalPassword = passwordArray[numrandom] + finalPassword; // Concatenating values from the final array 
     console.log(finalPassword);
   }
 
