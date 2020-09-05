@@ -5,7 +5,7 @@ var specialCharacters = ['@','%','+','\\','/',"'",'!','#','$','^','?',':',',',')
 var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 var lowerCasedCharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 var upperCasedCharacters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']; 
-
+var passwordArray = [];
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -18,9 +18,9 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
-  var newPassword = "Prueba";
   var passLength = false;
   var passCharacter = false;
+  var finalPassword = "";
   while (passLength === false) {
     passLength = lengthValidation();
   }
@@ -29,6 +29,29 @@ function generatePassword() {
   }
   console.log(passLength);
   console.log(passCharacter);
+
+for (i=0; i < passCharacter.length; i++){
+  if (passCharacter[i] === "l"){
+    passwordArray = passwordArray.concat(lowerCasedCharacters);
+  }
+  if (passCharacter[i] === "n"){
+    passwordArray = passwordArray.concat(numericCharacters);
+  }
+  if (passCharacter[i] === "s"){
+    passwordArray = passwordArray.concat(specialCharacters);
+  }
+  if (passCharacter[i] === "u"){
+    passwordArray = passwordArray.concat(upperCasedCharacters);
+  }
+  console.log(passwordArray);
+  }
+  for (j=0; j < passLength; j++){
+    var numrandom = Math.floor(Math.random() * passwordArray.length);
+    console.log(numrandom);
+    finalPassword = passwordArray[numrandom] + finalPassword;
+    console.log(finalPassword);
+  }
+
 }
 
 function lengthValidation () { // To validate the length of the password
@@ -63,7 +86,7 @@ function charactersValidation () { // To validate character types
   
 }
 
-function getCharacterType(array){ // Creating an array without duplicate values
+function getCharacterType(array){ // Creating an array without duplicated values
   var finalArray = [];
   for(i=0; i < array.length; i++){
     if((finalArray.indexOf(array[i]) === -1) && array[i] !== ",") {
