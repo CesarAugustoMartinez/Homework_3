@@ -10,7 +10,6 @@ var upperCasedCharacters = ['A','B','C','D','E','F','G','H','I','J','K','L','M',
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 
 }
@@ -19,17 +18,20 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
-var passLength = lengthValidation();
+  var newPassword = "Prueba";
+  var passLength = lengthValidation();
+
 console.log(passLength);
+
 if (passLength === true){
-  var charactersUser = charactersValidation();
-  console.log(charactersUser);  
-}
+  //var charactersUser = charactersValidation();
+  //console.log(charactersUser); 
+  return (newPassword); 
+  }
 else {
- generatePassword();
+  alert("Enter a number between 8 to 128");
+  return ("Your Secure Password");
 }
-
-
 
 
 }
@@ -44,40 +46,39 @@ function lengthValidation () { // To validate the length of the password
     return true;
   }
   else {
-    alert("Enter a number between 8 to 128");
     return false;
   }
 }
-function charactersValidation () {
-  var typeoptions = ["l","u","n","s"];
-  var types = prompt("For character types to include in the password choose: \n lowercase - l, uppercase - u, numeric - n, and/or special characters - s", "example: l,u,n,s")
-  if ( types === null ) {
-    return;
-  }
-  if (types.length !== 0) {
-    if (types.length === 1 && (types === "l" || types === "u" || types === "n" || types === "s")){
-      return types.split("");
-    }
-    else
-    {
-      if ( types.indexOf(",") > 0 ) {
-        types = types.split(",");
-        if (types.length > 0 && types.length < 5) {
-          return types
-        }
-        else {
-          alert("Choose at least one character and no more than 4: \n lowercase - l, uppercase - u, numeric - n, and/or special characters - s. Example: l,u,n,s");
-          charactersValidation();
-        }
-      }
-    }
-  }
-  else {
-          alert("Choose at least one character and no more than 4: \n lowercase - l, uppercase - u, numeric - n, and/or special characters - s. Example: l,u,n,s");
-          charactersValidation();
-  }
+// function charactersValidation () {
+//   var typeoptions = ["l","u","n","s"];
+//   var types = prompt("For character types to include in the password choose: \n lowercase - l, uppercase - u, numeric - n, and/or special characters - s", "example: l,u,n,s")
+//   if ( types === null ) {
+//     return;
+//   }
+//   if (types.length !== 0) {
+//     if (types.length === 1 && (types === "l" || types === "u" || types === "n" || types === "s")){
+//       return types.split("");
+//     }
+//     else
+//     {
+//       if ( types.indexOf(",") > 0 ) {
+//         types = types.split(",");
+//         if (types.length > 0 && types.length < 5) {
+//           return types
+//         }
+//         else {
+//           alert("Choose at least one character and no more than 4: \n lowercase - l, uppercase - u, numeric - n, and/or special characters - s. Example: l,u,n,s");
+//           charactersValidation();
+//         }
+//       }
+//     }
+//   }
+//   else {
+//           alert("Choose at least one character and no more than 4: \n lowercase - l, uppercase - u, numeric - n, and/or special characters - s. Example: l,u,n,s");
+//           charactersValidation();
+//   }
 
-}
+// }
 
  
 
