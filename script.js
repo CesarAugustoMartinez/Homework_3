@@ -19,25 +19,65 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
-var passLength = lengthvalidation();
+var passLength = lengthValidation();
 console.log(passLength);
+if (passLength === true){
+  var charactersUser = charactersValidation();
+  console.log(charactersUser);  
+}
+else {
+ generatePassword();
+}
+
+
 
 
 }
 
-function lengthvalidation () {
+function lengthValidation () { // To validate the length of the password
   var lengthPassword = prompt("Please enter the length for your password", "Choose a lenth of at least 8 characters and no more than 128 characters"); 
   if ( lengthPassword === null ) {
     return;
   }
   if (lengthPassword > 7 && lengthPassword < 129) {
-    return lengthPassword;
+    lengthPassword = 0;
+    return true;
   }
   else {
     alert("Enter a number between 8 to 128");
-    lengthvalidation();
+    return false;
+  }
+}
+function charactersValidation () {
+  var typeoptions = ["l","u","n","s"];
+  var types = prompt("For character types to include in the password choose: \n lowercase - l, uppercase - u, numeric - n, and/or special characters - s", "example: l,u,n,s")
+  if ( types === null ) {
+    return;
+  }
+  if (types.length !== 0) {
+    if (types.length === 1 && (types === "l" || types === "u" || types === "n" || types === "s")){
+      return types.split("");
+    }
+    else
+    {
+      if ( types.indexOf(",") > 0 ) {
+        types = types.split(",");
+        if (types.length > 0 && types.length < 5) {
+          return types
+        }
+        else {
+          alert("Choose at least one character and no more than 4: \n lowercase - l, uppercase - u, numeric - n, and/or special characters - s. Example: l,u,n,s");
+          charactersValidation();
+        }
+      }
+    }
+  }
+  else {
+          alert("Choose at least one character and no more than 4: \n lowercase - l, uppercase - u, numeric - n, and/or special characters - s. Example: l,u,n,s");
+          charactersValidation();
   }
 
-
 }
+
+ 
 
