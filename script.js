@@ -20,7 +20,7 @@ generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
 var passLength = lengthvalidation();
-
+console.log(passLength);
 
 
 }
