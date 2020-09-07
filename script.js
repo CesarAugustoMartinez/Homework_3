@@ -21,16 +21,16 @@ function generatePassword() {
   var passLength = false;
   var passCharacter = false;
   var finalPassword = "";
-  while (passLength === false) { // Validating the length of password. Allowed from 8 up to 128
+  while (passLength === false) { // Validate the length of password. Allowed from 8 up to 128
     passLength = lengthValidation();
   }
   if (passLength !== true) {
-    while (passCharacter === false) { // Validating the criteria for characther types
+    while (passCharacter === false) { // Validate the criteria for characther types
     passCharacter = charactersValidation();
     }
   }
 if (passLength !== true && passCharacter !== true) { 
-  for (i=0; i < passCharacter.length; i++){ // Joining arrays according criteria
+  for (i=0; i < passCharacter.length; i++){ // Join arrays according criteria
     if (passCharacter[i] === "l"){
       passwordArray = passwordArray.concat(lowerCasedCharacters);
     }
@@ -84,7 +84,7 @@ function charactersValidation () { // To validate character types
   
 }
 
-function getCharacterType(array){ // Creating an array without duplicated values
+function getCharacterType(array){ // Create an array without duplicated values
   var finalArray = [];
   for(i=0; i < array.length; i++){
     if((finalArray.indexOf(array[i]) === -1) && array[i] !== ",") {
