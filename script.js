@@ -29,9 +29,7 @@ function generatePassword() {
     passCharacter = charactersValidation();
     }
   }
-  console.log(passLength);
-  console.log(passCharacter);
-if (passLength !== true && passCharacter !== true) {
+if (passLength !== true && passCharacter !== true) { 
   for (i=0; i < passCharacter.length; i++){ // Joining arrays according criteria
     if (passCharacter[i] === "l"){
       passwordArray = passwordArray.concat(lowerCasedCharacters);
@@ -45,13 +43,10 @@ if (passLength !== true && passCharacter !== true) {
     if (passCharacter[i] === "u"){
       passwordArray = passwordArray.concat(upperCasedCharacters);
     }
-    console.log(passwordArray);
-    }
+  }
     for (j=0; j < passLength; j++){
       var numrandom = Math.floor(Math.random() * passwordArray.length); // Generating a random integer 
-      console.log(numrandom);
       finalPassword = passwordArray[numrandom] + finalPassword; // Concatenating values from the final array 
-      console.log(finalPassword);
     }
 }
   return finalPassword;
