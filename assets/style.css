@@ -14,7 +14,11 @@ body,
 
 body {
   font-family: sans-serif;
-  background-color: #f9fbfd;
+  background: url("../images/passwordBackground.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }
 
 .wrapper {
@@ -26,8 +30,11 @@ body {
 header {
   text-align: center;
   padding: 20px;
-  padding-top: 0px;
-  color: hsl(206, 17%, 28%);
+  padding-top: 20px;
+  color: white;
+  background: black;
+  margin-bottom: 50px;
+  opacity: 0.8;
 }
 
 .card {
@@ -40,6 +47,7 @@ header {
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+  opacity: 0.9;
 }
 
 .card-header::after {
@@ -86,6 +94,7 @@ header {
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+  
 }
 
 button[disabled] {
@@ -116,6 +125,7 @@ button[disabled] {
   border-radius: 6px;
   resize: none;
   overflow: hidden;
+  font-weight: bold;
 }
 
 @media (max-width: 690px) {

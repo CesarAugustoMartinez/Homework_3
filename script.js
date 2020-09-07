@@ -51,7 +51,7 @@ for (i=0; i < passCharacter.length; i++){ // Joing arrays due criteria
     finalPassword = passwordArray[numrandom] + finalPassword; // Concatenating values from the final array 
     console.log(finalPassword);
   }
-
+  return finalPassword;
 }
 
 function lengthValidation () { // To validate the length of the password
