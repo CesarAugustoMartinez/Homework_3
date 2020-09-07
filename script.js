@@ -21,36 +21,39 @@ function generatePassword() {
   var passLength = false;
   var passCharacter = false;
   var finalPassword = "";
-  while (passLength === false) { // Validating the length of password. Allowed 8 up to 128
+  while (passLength === false) { // Validating the length of password. Allowed from 8 up to 128
     passLength = lengthValidation();
   }
-  while (passCharacter === false) { // Validating the criteria for characther types
+  if (passLength !== true) {
+    while (passCharacter === false) { // Validating the criteria for characther types
     passCharacter = charactersValidation();
+    }
   }
   console.log(passLength);
   console.log(passCharacter);
-
-for (i=0; i < passCharacter.length; i++){ // Joing arrays due criteria
-  if (passCharacter[i] === "l"){
-    passwordArray = passwordArray.concat(lowerCasedCharacters);
-  }
-  if (passCharacter[i] === "n"){
-    passwordArray = passwordArray.concat(numericCharacters);
-  }
-  if (passCharacter[i] === "s"){
-    passwordArray = passwordArray.concat(specialCharacters);
-  }
-  if (passCharacter[i] === "u"){
-    passwordArray = passwordArray.concat(upperCasedCharacters);
-  }
-  console.log(passwordArray);
-  }
-  for (j=0; j < passLength; j++){
-    var numrandom = Math.floor(Math.random() * passwordArray.length); // Generating a random integer 
-    console.log(numrandom);
-    finalPassword = passwordArray[numrandom] + finalPassword; // Concatenating values from the final array 
-    console.log(finalPassword);
-  }
+if (passLength !== true && passCharacter !== true) {
+  for (i=0; i < passCharacter.length; i++){ // Joining arrays according criteria
+    if (passCharacter[i] === "l"){
+      passwordArray = passwordArray.concat(lowerCasedCharacters);
+    }
+    if (passCharacter[i] === "n"){
+      passwordArray = passwordArray.concat(numericCharacters);
+    }
+    if (passCharacter[i] === "s"){
+      passwordArray = passwordArray.concat(specialCharacters);
+    }
+    if (passCharacter[i] === "u"){
+      passwordArray = passwordArray.concat(upperCasedCharacters);
+    }
+    console.log(passwordArray);
+    }
+    for (j=0; j < passLength; j++){
+      var numrandom = Math.floor(Math.random() * passwordArray.length); // Generating a random integer 
+      console.log(numrandom);
+      finalPassword = passwordArray[numrandom] + finalPassword; // Concatenating values from the final array 
+      console.log(finalPassword);
+    }
+}
   return finalPassword;
 }
 
