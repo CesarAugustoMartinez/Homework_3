@@ -67,13 +67,13 @@ function lengthValidation () { // To validate the length of the password
 }
 
 function charactersValidation () { // To validate character types
-  var characterTypes = prompt("For character types to include in the password choose: \n lowercase - l, uppercase - u, numeric - n, and/or special characters - s", "example: l,u,n,s");
+  var characterTypes = prompt("For character types to include in the password choose: \n lowercase - l/L, uppercase - u/U, numeric - n/N, and/or special characters - s/S", "Example: l,u,n,s");
   var pattern = /^[lLuUnNsS,]+$/;
   if ( characterTypes === null ) {
     return true;
   }  
   if (pattern.test(characterTypes) === false || characterTypes.length > 7){
-    alert("Incorrect pattern! \n Choose at least one character and no more than 4: \n lowercase - l, uppercase - u, numeric - n, and/or special characters - s. Example: l,u,n,s");
+    alert("Incorrect pattern! \n Choose at least one character and no more than 4: \n lowercase - l/L, uppercase - u/U, numeric - n/N, and/or special characters - s/S. Example: l,u,n,s");
     return false;
   }
   else {
