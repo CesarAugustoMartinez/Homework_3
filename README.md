@@ -2,7 +2,7 @@
 
 ![picture](/images/passwordGenerator.png)
 
-Link : [Project Link](https://cesaraugustomartinez.github.io/Homework_3/)
+Link : [Project Link](https://cesaraugustomartinez.github.io/Password_Generator/)
 
 ---
 
